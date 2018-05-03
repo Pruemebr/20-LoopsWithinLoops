@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Bryce Pruemer.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -43,8 +43,16 @@ def rectangle_of_stars(r, c):
        *****
     Preconditions:  r and c are non-negative integers.
     """
+    row = ''
+    for k in range(r):
+        if k > 0:
+            print(row)
+            row=''
+        for j in range(c):
+            row = row + '*'
+    print(row)
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     #  *** Unless your instructor directs you otherwise,
@@ -97,8 +105,13 @@ def triangle_of_stars(r):
        *****
     Precondition:  r is a non-negative integer.
     """
+    row = ''
+    for j in range(r):
+        row = row + '*'
+        print(row)
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     #  *** Unless your instructor directs you otherwise,
@@ -149,8 +162,16 @@ def decreasing_exclamation_marks(m, n):
        !!
     Precondition:  m and n are positive integers with m >= n.
     """
+    row = ''
+    var = m
+    for i in range(var,n-1,-1):
+        row = ''
+        for j in range(m):#builds the row of exclamation points
+            row = row + '!'
+        print(row)
+        m = m - 1 #decreases number of exclamation points in each line
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -191,8 +212,19 @@ def alternating_brackets(m, n):
        []
     Precondition:  m and n are positive integers with m >= n.
     """
+    row = ''
+    var = m
+    for i in range(var, n-1, -1):
+        row = ''
+        for j in range(m):#builds the row of exclamation points
+            if j%2 == 0:
+                row = row + '['
+            else:
+                row = row + ']'
+        print(row)
+        m = m - 1
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -234,8 +266,17 @@ def triangle_same_number_in_each_row(r):
        55555
     Precondition:  r is a non-negative integer.
     """
+    row = ''
+    length = 1
+    for n in range(r):
+        number = str(n+1) #sets number starting from 1
+        for j in range(length):
+            row = row + number
+        print(row)
+        row = ''
+        length = length + 1 #increases the length of the next row by 1
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -277,8 +318,14 @@ def triangle_all_numbers_in_each_row(r):
        12345
     Precondition:  r is a non-negative integer.
     """
+    row = ''
+    for k in range(r):
+        for j in range(k+1): #This for loop builds the row
+            row = row + str(j+1) #This adds one to the number being added to the row and then adds that to row
+        print(row)
+        row = '' #This empties out the row variable
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
